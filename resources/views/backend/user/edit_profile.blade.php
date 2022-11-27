@@ -1,5 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
+{{-- SCRIPT FOR JQUERY --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
