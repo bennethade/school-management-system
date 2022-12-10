@@ -114,7 +114,15 @@
 	      <!-- User Account-->
           <li class="dropdown user user-menu">	
 			<a href="#" class="waves-effect waves-light rounded dropdown-toggle p-0" data-toggle="dropdown" title="User">
-				<img src="{{ (!empty($user->image)) ? url('upload/user_images/'.$user->image) : url('upload/no_image.jpg') }}" alt="">
+				@if (Auth::user()->role == 'Admin' && 'Accountant')
+					<img src="{{ (!empty($user->image)) ? url('upload/user_images/'.$user->image) : url('upload/no_image.jpg') }}" alt="">	
+
+				@elseif (Auth::user()->designation == 'Principal' && 'Teacher' && 'Class Assistant' && 'Corp Member')
+					<img src="{{ (!empty($user->image)) ? url('upload/employee_images/'.$user->image) : url('upload/no_image.jpg') }}" alt="">	
+				@else
+					<img src="{{ (!empty($user->image)) ? url('upload/student_images/'.$user->image) : url('upload/no_image.jpg') }}" alt="">	
+				@endif
+				
 			</a>
 			<ul class="dropdown-menu animated flipInX">
 			  <li class="user-body">

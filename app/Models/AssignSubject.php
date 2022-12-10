@@ -20,4 +20,13 @@ class AssignSubject extends Model
         //MATCHING THE CLASS_ID IN FEE_CATEGORY_AMOUNTS TABLE WITH THE ID IN STUDENT CLASSES TABLE
         return $this->belongsTo(SchoolSubject::class,'subject_id','id');  
     }
+
+
+    //ME
+    public function assign_subject()
+    {
+        return $this->belongsTo(SchoolSubject::class,'assign_subject_id','id');
+    }
+
+
 }

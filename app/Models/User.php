@@ -58,4 +58,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function designation()
+    {
+        return $this->belongsTo(Designation::class,'designation_id','id');
+        //The designation_id column in Users table will be matched with the id column in Designation table
+    }
 }

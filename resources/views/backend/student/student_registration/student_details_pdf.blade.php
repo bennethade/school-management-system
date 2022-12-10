@@ -33,7 +33,11 @@
 
 <table id="user">
     <tr>
-        <td><h2>Anchor Hub ICT</h2></td>
+        <td><h2>
+          <?php $image_path = '/upload/logo.jpg'; ?>
+          <img src="{{ public_path() . $image_path}}" width="200" height="100" alt="">
+          
+        </h2></td>
         <td>
             <h2>School Management System</h2>
             <p>Company Address:</p>

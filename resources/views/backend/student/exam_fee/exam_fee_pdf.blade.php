@@ -10,7 +10,7 @@
 
     #user td, #user th {
     border: 1px solid #ddd;
-    padding: 5px;
+    padding: 4px;
     }
 
     #user tr:nth-child(even){background-color: #f2f2f2;}
@@ -68,20 +68,19 @@
   
   <tr>
     <td>1</td>
+    <td><b>Student Name </b></td>
+    <td>{{ $details['student']['name'] }}</td>
+  </tr> 
+  <tr>
+    <td>2</td>
     <td><b>Student ID No: </b></td>
     <td>{{ $details['student']['id_no'] }}</td>
   </tr>
   <tr>
-    <td>2</td>
+    <td>3</td>
     <td><b>Student Roll </b></td>
     <td>{{ $details->roll }}</td>
   </tr>
-  <tr>
-    <tr>
-    <td>3</td>
-    <td><b>Student Name </b></td>
-    <td>{{ $details['student']['name'] }} {{ $details['student']['fname'] }}</td>
-  </tr> 
     <td>4</td>
     <td><b>Father's Name </b></td>
     <td>{{ $details['student']['fname'] }}</td>
@@ -99,7 +98,7 @@
   <tr>
     <td>7</td>
     <td><b>Exam Fee </b></td>
-    <td>{{ $originalfee }} $</td>
+    <td>#{{ $originalfee }}</td>
   </tr>
   <tr>
     <td>8</td>
@@ -109,7 +108,7 @@
   <tr>
     <td>9</td>
     <td><b>This Student's Fee for {{ $exam_type }} </b></td>
-    <td>{{ $finalfee }} $</td>
+    <td>#{{ $finalfee }}</td>
   </tr>
     
 </table>
@@ -129,20 +128,20 @@
     
     <tr>
       <td>1</td>
+      <td><b>Student Name </b></td>
+      <td>{{ $details['student']['name'] }}</td>
+    </tr> 
+    <tr>
+      <td>2</td>
       <td><b>Student ID No: </b></td>
       <td>{{ $details['student']['id_no'] }}</td>
     </tr>
     <tr>
-      <td>2</td>
+      <td>3</td>
       <td><b>Student Roll </b></td>
       <td>{{ $details->roll }}</td>
     </tr>
     <tr>
-      <tr>
-      <td>3</td>
-      <td><b>Student Name </b></td>
-      <td>{{ $details['student']['name'] }}</td>
-    </tr> 
       <td>4</td>
       <td><b>Father's Name </b></td>
       <td>{{ $details['student']['fname'] }}</td>
@@ -160,7 +159,7 @@
     <tr>
       <td>7</td>
       <td><b>Exam Fee </b></td>
-      <td>{{ $originalfee }} $</td>
+      <td>#{{ $originalfee }}</td>
     </tr>
     <tr>
       <td>8</td>
@@ -170,7 +169,7 @@
     <tr>
       <td>9</td>
       <td><b>This Student's Fee for {{ $exam_type }} </b></td>
-      <td>{{ $finalfee }} $</td>
+      <td>#{{ $finalfee }}</td>
     </tr>
       
   </table>

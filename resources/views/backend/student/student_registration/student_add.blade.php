@@ -47,9 +47,9 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <h5>Mother's Name<span class="text-danger">*</span></h5>
+                                        <h5>Email<span class="text-danger">*</span></h5>
                                          <div class="controls">
-                                            <input type="text" name="mname"  class="form-control">
+                                            <input type="email" name="email"  class="form-control">
                                          </div>
                                     </div>
                                 </div><!--End Col-md-4-->

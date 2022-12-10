@@ -19,15 +19,28 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class StudentRegistrationController extends Controller
 {
     
+    //TUTOR'S CODE FOR STUDENT REGISTRATION VIEW
+
+    // public function StudentRegistrationView()
+    // {
+    //     $data['years'] = StudentYear::all();
+    //     $data['classes'] = StudentClass::all();
+
+    //     $data['year_id'] = StudentYear::orderBy('id','desc')->first()->id;  //FOR STUDENT SEARCH  
+    //     $data['class_id'] = StudentClass::orderBy('id','desc')->first()->id;  //FOR STUDENT SEARCH 
+    //     // dd($data['year_id']);
+    //     $data['allData'] = AssignStudent::where('year_id',$data['year_id'])->where('class_id',$data['class_id'])->get();
+    //     return view('backend.student.student_registration.student_view',$data);
+    // }
+
+
     public function StudentRegistrationView()
     {
         $data['years'] = StudentYear::all();
         $data['classes'] = StudentClass::all();
 
-        $data['year_id'] = StudentYear::orderBy('id','desc')->first()->id;  //FOR STUDENT SEARCH  
-        $data['class_id'] = StudentClass::orderBy('id','desc')->first()->id;  //FOR STUDENT SEARCH 
-        // dd($data['year_id']);
-        $data['allData'] = AssignStudent::where('year_id',$data['year_id'])->where('class_id',$data['class_id'])->get();
+        $data['allData'] = AssignStudent::all();
+        
         return view('backend.student.student_registration.student_view',$data);
     }
 
@@ -110,7 +123,8 @@ class StudentRegistrationController extends Controller
                 $user->code = $code;
                 $user->name = $request->name; ///DATABASE FIELD NAME FIRST. THEN REQUESTED FIELD IN VIEW FILE FOLLOWS
                 $user->fname = $request->fname;
-                $user->mname = $request->mname;
+                // $user->mname = $request->mname;
+                $user->email = $request->email;
                 $user->mobile = $request->mobile;
                 $user->address = $request->address;
                 $user->gender = $request->gender;
@@ -153,19 +167,21 @@ class StudentRegistrationController extends Controller
     } //End Method
 
 
-    public function stuentRegistrationEdit($student_id)
-    {
-        $data['years'] = StudentYear::all();
-        $data['classes'] = StudentClass::all();
-        $data['groups'] = StudentGroup::all();
-        $data['shifts'] = StudentShift::all();
+    // MISTAKENLY REPEATED
+    // public function stuentRegistrationEdit($student_id)
+    // {
+    //     $data['years'] = StudentYear::all();
+    //     $data['classes'] = StudentClass::all();
+    //     $data['groups'] = StudentGroup::all();
+    //     $data['shifts'] = StudentShift::all();
 
-        $data['editData'] = AssignStudent::with(['student','discount'])->where('student_id',$student_id)->first();
-        // dd($data['editData']->toArray());
-        return view('backend.student.student_registration.student_edit',$data);
-    }
+    //     $data['editData'] = AssignStudent::with(['student','discount'])->where('student_id',$student_id)->first();
+    //     // dd($data['editData']->toArray());
+    //     return view('backend.student.student_registration.student_edit',$data);
+    // }
 
 
+    
     public function studentRegistrationEdit($student_id)
     {
         $data['years'] = StudentYear::all();
@@ -190,7 +206,8 @@ class StudentRegistrationController extends Controller
                 
                 $user->name = $request->name; ///DATABASE FIELD NAME FIRST. THEN REQUESTED FIELD IN VIEW FILE FOLLOWS
                 $user->fname = $request->fname;
-                $user->mname = $request->mname;
+                // $user->mname = $request->mname;
+                $user->email = $request->email;
                 $user->mobile = $request->mobile;
                 $user->address = $request->address;
                 $user->gender = $request->gender;

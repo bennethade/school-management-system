@@ -48,9 +48,9 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <h5>Mother's Name<span class="text-danger">*</span></h5>
+                                        <h5>Student Email<span class="text-danger">*</span></h5>
                                          <div class="controls">
-                                            <input type="text" name="mname"  class="form-control" value="{{ $editData['student']['mname'] }}">
+                                            <input type="email" name="email"  class="form-control" value="{{ $editData['student']['email'] }}">
                                          </div>
                                     </div>
                                 </div><!--End Col-md-4-->

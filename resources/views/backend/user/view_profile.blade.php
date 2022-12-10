@@ -26,7 +26,14 @@
 
                 <div class="widget-user-image">
                     {{-- PROFILE IMAGE CONDITION --}}
-                  <img class="rounded-circle" src="{{ (!empty($user->image)) ? url('upload/user_images/'.$user->image) : url('upload/no_image.jpg') }}" alt="User Avatar">
+                  @if (Auth::user()->role == 'Admin' && 'Accountant')
+                    <img class="rounded-circle" src="{{ (!empty($user->image)) ? url('upload/user_images/'.$user->image) : url('upload/no_image.jpg') }}" alt="User Avatar">
+                  @elseif (Auth::user()->designation == 'Principal' && 'Teacher' && 'Class Assistant' && 'Corp Member')
+                    <img class="rounded-circle" src="{{ (!empty($user->image)) ? url('upload/employee_images/'.$user->image) : url('upload/no_image.jpg') }}" alt="User Avatar">
+                  @else
+                  <img class="rounded-circle" src="{{ (!empty($user->image)) ? url('upload/student_images/'.$user->image) : url('upload/no_image.jpg') }}" alt="User Avatar">
+                  @endif
+
                 </div>
                 <div class="box-footer">
                   <div class="row">

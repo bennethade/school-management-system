@@ -81,17 +81,18 @@
 
 
 
-                    @if(!@$search)   <!--IF IS SET NOT SEARCH-->
+                    {{-- @if(!@$search)   <!--IF IS SET NOT SEARCH--> --}}
                       <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th width="5%">S/N</th>
+                                <th>#</th>
+                                <th>Image</th>
                                 <th>Name</th>
                                 <th>ID No.</th>
                                 <th>Roll</th>
                                 <th>Year</th>
                                 <th>Class</th>
-                                <th>Image</th>
+                                <th>Email</th>
                                 @if (Auth::user()->role == "Admin")
                                   <th>Code</th>                                
                                 @endif
@@ -102,19 +103,22 @@
                           @foreach ($allData as $key => $value)
                             <tr>
                                 <td>{{ $key+1 }}</td>
+                                <td>
+                                  <img src="{{ (!empty($value['student']['image'])) ? url('upload/student_images/'.$value['student']['image']) : url('upload/no_image.jpg') }}" style="width: 60px; height:60px;">
+                                </td>
                                 <td>{{ $value['student']['name'] }}</td>
                                 <td>{{ $value['student']['id_no'] }}</td>
                                 <td>{{ $value->roll }}</td>
                                 <td>{{ $value['student_year']['name'] }}</td>
                                 <td>{{ $value['student_class']['name'] }}</td>
+                                <td>{{ $value['student']['email'] }}</td>
+                                @if (Auth::user()->role == "Admin")
+                                  <td>{{ $value['student']['code'] }}</td>
+                                @endif                               
                                 <td>
-                                  <img src="{{ (!empty($value['student']['image'])) ? url('upload/student_images/'.$value['student']['image']) : url('upload/no_image.jpg') }}" style="width: 60px; height:60px;">
-                                </td>
-                                <td>{{ $value->class_id }}</td>
-                                <td>
-                                  <a href="{{ route('student.registration.edit',$value->student_id) }}" class="btn btn-info fa fa-edit"></a>
-                                  <a href="{{ route('student.registration.promotion',$value->student_id) }}" class="btn btn-danger fa fa-check"></a>
-                                  <a target="_blank" href="{{ route('student.registration.details',$value->student_id) }}" class="btn btn-danger fa fa-eye"></a>
+                                  <a href="{{ route('student.registration.edit',$value->student_id) }}" class="btn btn-info fa fa-edit" title="Edit"></a>
+                                  <a href="{{ route('student.registration.promotion',$value->student_id) }}" class="btn btn-danger fa fa-check" title="Promote Student"></a>
+                                  <a target="_blank" href="{{ route('student.registration.details',$value->student_id) }}" class="btn btn-danger fa fa-eye" title="View Student Details"></a>
                                 </td>
                             </tr>
                           @endforeach
@@ -132,9 +136,9 @@
                         </tfoot>
                       </table>
 
-                    @else
+                    {{-- @else --}}
 
-                      <table id="example1" class="table table-bordered table-striped">
+                      {{-- <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th width="5%">S/N</th>
@@ -162,7 +166,7 @@
                                 <td>
                                   <img src="{{ (!empty($value['student']['image'])) ? url('upload/student_images/'.$value['student']['image']) : url('upload/no_image.jpg') }}" style="width: 60px; height:60px;">
                                 </td>
-                                <td>{{ $value->class_id }}</td>
+                                <td>{{ $value->code }}</td>
                                 <td>
                                   <a href="{{ route('student.registration.edit',$value->student_id) }}" class="btn btn-info">Edit</a>
                                   <a href="{{ route('student.registration.promotion',$value->student_id) }}" class="btn btn-danger">Promote</a>
@@ -173,18 +177,18 @@
                         
                         </tbody>
                         <tfoot>
-                            {{-- <tr>
+                            <tr>
                                 <th>Name</th>
                                 <th>Position</th>
                                 <th>Office</th>
                                 <th>Age</th>
                                 <th>Start date</th>
                                 <th>Salary</th>
-                            </tr> --}}
+                            </tr> 
                         </tfoot>
                       </table>
 
-                    @endif
+                    @endif --}}
 
 
                   </div>
